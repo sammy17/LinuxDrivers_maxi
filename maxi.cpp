@@ -336,6 +336,7 @@ int main(int argc, char *argv[]) {
                 m_axi_bound[k*4+1] = detections[k].y;
                 m_axi_bound[k*4+2] = detections[k].x + detections[k].width;
                 m_axi_bound[k*4+3] = detections[k].y + detections[k].height;
+                printf("testloop %d \n",k);
             }
         printf("test2\n");
         feature_config();
