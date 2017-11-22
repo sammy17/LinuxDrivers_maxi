@@ -282,7 +282,7 @@ int main(int argc, char *argv[]) {
             cv::dilate(mask, mask, structuringElement5x5);
             cv::dilate(mask, mask, structuringElement5x5);
             cv::erode(mask, mask, structuringElement5x5);
-            printf("test2\n");
+            
             std::vector<std::vector<cv::Point> > contours;
         
             // contour detection
@@ -294,7 +294,7 @@ int main(int argc, char *argv[]) {
             {
                 cv::convexHull(contours[i], convexHulls[i]);
             }
-        
+            printf("test2\n");
             // convex hulls
             for (auto &convexHull : convexHulls) {
                 Blob possibleBlob(convexHull);
