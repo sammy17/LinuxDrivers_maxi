@@ -124,7 +124,7 @@ int main(int argc, char *argv[]) {
     uint8_t * dst = (uint8_t*)mmap(NULL, DDR_RANGE,PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, RX_BASE_ADDR); 
 
     uint16_t * m_axi_bound = (uint16_t)mmap(NULL, 80,PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, M_AXI_BOUNDING);
-    uint16_t * m_axi_feature = (uint16_t)mmap(NULL, 80,PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, M_AXI_FEATUREH);
+    uint16_t * m_axi_feature = (uint16_t)mmap(NULL, 5120*2,PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, M_AXI_FEATUREH);
 
     if(backsub_init(&backsub)==0) {
         printf("Backsub IP Core Initialized\n");
