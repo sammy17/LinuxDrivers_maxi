@@ -269,9 +269,9 @@ int main(int argc, char *argv[]) {
 
 
         // Contour detection using opencv
-
-        Mat mask = Mat(240, 320, CV_8UC1, dst);
-
+        printf("test1\n");
+        Mat mask = Mat(240, 320, CV_8UC1, dst); 
+        printf("test2\n");
         std::vector<cv::Rect> detections,found;
         
         // cv::Mat structuringElement3x3 = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(3, 3));
