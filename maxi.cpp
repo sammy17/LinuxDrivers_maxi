@@ -267,6 +267,9 @@ int main(int argc, char *argv[]) {
         while(!XBacksub_IsDone(&backsub));
         printf("backsub finished\n");
 
+        for (int i=0;i<100;i++){
+        printf("src : %d , dst : %d \n",ybuffer[i],dst[i]);
+        }
 
         // Contour detection using opencv
         printf("test1\n");
@@ -371,9 +374,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    for (int i=0;i<100;i++){
-        printf("src : %d , dst : %d \n",ybuffer[i],dst[i]);
-    }
+    
 
     close(fd);
 
