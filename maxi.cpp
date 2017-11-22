@@ -74,6 +74,7 @@ void feature_rel(XFeature * ptr){
 }
 
 void feature_config() {
+    printf("config\n");
     XFeature_Set_frame_in(&feature,(u32)TX_BASE_ADDR);
     XFeature_Set_bounding(&feature,(u32)M_AXI_BOUNDING);
     XFeature_Set_featureh(&feature,(u32)M_AXI_FEATUREH);
@@ -83,7 +84,7 @@ void feature_config() {
 
 int backsub_init(XBacksub * backsub_ptr){
 
-    backsub_ptr->Crtl_bus_BaseAddress = (u32)mmap(NULL, AXILITE_RANGE, PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, XPAR_XBACKSUB_0_S_AXI_CRTL_BUS_BASEADDR);
+    backsub_ptr->Crtl_bus_BaseAddress = (u32*)mmap(NULL, AXILITE_RANGE, PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, XPAR_XBACKSUB_0_S_AXI_CRTL_BUS_BASEADDR);
     backsub_ptr->IsReady = XIL_COMPONENT_IS_READY;
     return 0;
 }
@@ -125,7 +126,7 @@ int main(int argc, char *argv[]) {
 
 
     uint16_t * m_axi_bound = (uint16_t*)mmap(NULL, 80,PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, M_AXI_BOUNDING);
-    uint16_t * m_axi_feature = (uint16_t*)mmap(NULL, 80,PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, M_AXI_FEATUREH);
+    uint16_t * m_axi_feature = (uint16_t*)mmap(NULL, 5120*2,PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, M_AXI_FEATUREH);
 
 
     if(backsub_init(&backsub)==0) {
