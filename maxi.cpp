@@ -84,7 +84,7 @@ void feature_config() {
 
 int backsub_init(XBacksub * backsub_ptr){
 
-    backsub_ptr->Crtl_bus_BaseAddress = (u32*)mmap(NULL, AXILITE_RANGE, PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, XPAR_XBACKSUB_0_S_AXI_CRTL_BUS_BASEADDR);
+    backsub_ptr->Crtl_bus_BaseAddress = (u32)mmap(NULL, AXILITE_RANGE, PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, XPAR_XBACKSUB_0_S_AXI_CRTL_BUS_BASEADDR);
     backsub_ptr->IsReady = XIL_COMPONENT_IS_READY;
     return 0;
 }
