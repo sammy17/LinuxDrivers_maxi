@@ -339,8 +339,9 @@ int main(int argc, char *argv[]) {
             }
 
         feature_config();
-        XFeature_Start(&feature);
         printf("test2\n");
+        XFeature_Start(&feature);
+        
         while(!XFeature_IsDone(&feature));
         printf("feature finished\nPrinting first histogram :\n");
 
