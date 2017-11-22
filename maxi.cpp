@@ -94,6 +94,7 @@ void backsub_rel(XBacksub * backsub_ptr){
 }
 
 void backsub_config(bool ini) {
+    printf("config\n");
     XBacksub_Set_frame_in(&backsub,(u32)TX_BASE_ADDR);
     XBacksub_Set_frame_out(&backsub,(u32)RX_BASE_ADDR);
     XBacksub_Set_init(&backsub, ini);
