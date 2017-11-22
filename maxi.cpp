@@ -337,9 +337,10 @@ int main(int argc, char *argv[]) {
                 m_axi_bound[k*4+2] = detections[k].x + detections[k].width;
                 m_axi_bound[k*4+3] = detections[k].y + detections[k].height;
             }
-            printf("test2\n");
-        feature_config();
 
+        feature_config();
+        XFeature_Start(&feature);
+        printf("test2\n");
         while(!XFeature_IsDone(&feature));
         printf("feature finished\nPrinting first histogram :\n");
 
