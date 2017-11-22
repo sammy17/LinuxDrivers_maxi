@@ -9,12 +9,17 @@ include_directories( ${Boost_INCLUDE_DIR})
 
 
 file(GLOB SOURCE_FILES
+	"*.cpp"
+	"*.h"
+	"drivers/*.c"
+	"drivers/*.h"
+	"include/xparameters.h"
         "detection/*.h"
         "detection/*.cpp"
         "detection/*.hpp"
         )
 
-set(SOURCE_FILES maxi.cpp drivers/xbacksub.c drivers/xbacksub.h drivers/xfeature.c drivers/xfeature.h include/xparameters.h)
+#set(SOURCE_FILES maxi.cpp drivers/xbacksub.c drivers/xbacksub.h drivers/xfeature.c drivers/xfeature.h include/xparameters.h detection/*.h detection/*.cpp)
 
 add_executable(node ${SOURCE_FILES})
 
