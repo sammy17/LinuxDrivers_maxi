@@ -83,20 +83,23 @@ void feature_config() {
 
 
 int backsub_init(XBacksub * backsub_ptr){
-
+    backsub_ptr->Axilites_BaseAddress = (u32)mmap(NULL, AXILITE_RANGE, PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, XPAR_BACKSUB_0_S_AXI_AXILITES_BASEADDR);
     backsub_ptr->Crtl_bus_BaseAddress = (u32)mmap(NULL, AXILITE_RANGE, PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, XPAR_XBACKSUB_0_S_AXI_CRTL_BUS_BASEADDR);
     backsub_ptr->IsReady = XIL_COMPONENT_IS_READY;
     return 0;
 }
 
 void backsub_rel(XBacksub * backsub_ptr){
+    munmap((void*)backsub_ptr->Axilites_BaseAddress, AXILITE_RANGE);
     munmap((void*)backsub_ptr->Crtl_bus_BaseAddress, AXILITE_RANGE);
 }
 
 void backsub_config(bool ini) {
     printf("config\n");
     XBacksub_Set_frame_in(&backsub,(u32)TX_BASE_ADDR);
+    printf("config1\n");
     XBacksub_Set_frame_out(&backsub,(u32)RX_BASE_ADDR);
+    printf("config2\n");
     XBacksub_Set_init(&backsub, ini);
 }
 
