@@ -337,9 +337,9 @@ int main(int argc, char *argv[]) {
                 m_axi_bound[k*4+2] = detections[k].x + detections[k].width;
                 m_axi_bound[k*4+3] = detections[k].y + detections[k].height;
             }
-
-        feature_config();
         printf("test2\n");
+        feature_config();
+        printf("test3\n");
         XFeature_Start(&feature);
         
         while(!XFeature_IsDone(&feature));
