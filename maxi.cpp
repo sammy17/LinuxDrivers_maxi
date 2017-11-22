@@ -294,7 +294,7 @@ int main(int argc, char *argv[]) {
             {
                 cv::convexHull(contours[i], convexHulls[i]);
             }
-            
+            printf("test10\n");
             // convex hulls
             for (auto &convexHull : convexHulls) {
                 Blob possibleBlob(convexHull);
