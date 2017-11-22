@@ -294,7 +294,7 @@ int main(int argc, char *argv[]) {
             {
                 cv::convexHull(contours[i], convexHulls[i]);
             }
-            printf("test2\n");
+            
             // convex hulls
             for (auto &convexHull : convexHulls) {
                 Blob possibleBlob(convexHull);
@@ -337,7 +337,7 @@ int main(int argc, char *argv[]) {
                 m_axi_bound[k*4+2] = detections[k].x + detections[k].width;
                 m_axi_bound[k*4+3] = detections[k].y + detections[k].height;
             }
-
+            printf("test2\n");
         feature_config();
 
         while(!XFeature_IsDone(&feature));
