@@ -248,6 +248,7 @@ int main(int argc, char *argv[]) {
 
         memcpy(src,buffer,sizeof(uint32_t)*N/2);
         printf("t3\n");
+        print_config();
         if (isFirst){
             backsub_config(true);
             isFirst = false;
