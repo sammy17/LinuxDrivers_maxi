@@ -53,12 +53,6 @@ using namespace std;
 
 /***************** Global Variables *********************/
 
-uint32_t * TX_BASE_PTR = (uint32_t *) (TX_BASE_ADDR);
-uint8_t * RX_BASE_PTR = (uint8_t *) (RX_BASE_ADDR);
-
-uint16_t * m_axi_bound = (uint16_t *) M_AXI_BOUNDING;
-uint16_t * m_axi_feature = (uint16_t *) M_AXI_FEATUREH;
-
 
 XBacksub backsub;
 XFeature feature;
@@ -128,6 +122,9 @@ int main(int argc, char *argv[]) {
 
     uint32_t * src = (uint32_t*)mmap(NULL, DDR_RANGE,PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, TX_BASE_ADDR); 
     uint8_t * dst = (uint8_t*)mmap(NULL, DDR_RANGE,PROT_EXEC|PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, RX_BASE_ADDR); 
+
+    uint16_t * m_axi_bound = (uint16_t)mmap(NULL, 80,PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, M_AXI_BOUNDING);
+    uint16_t * m_axi_feature = (uint16_t)mmap(NULL, 80,PROT_READ|PROT_WRITE, MAP_SHARED, fdIP, M_AXI_FEATUREH);
 
     if(backsub_init(&backsub)==0) {
         printf("Backsub IP Core Initialized\n");
@@ -260,7 +257,7 @@ int main(int argc, char *argv[]) {
         XBacksub_Start(&backsub);
 
         while(!XBacksub_IsDone(&backsub));
-	    printf("backsub finished\n");
+        printf("backsub finished\n");
 
 
         // Contour detection using opencv
