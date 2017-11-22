@@ -311,7 +311,7 @@ int main(int argc, char *argv[]) {
                     found.push_back(possibleBlob.currentBoundingRect);
                 }
             }
-        
+            printf("test11\n");
             size_t i, j;
         
             for (i=0; i<found.size(); i++)
@@ -330,7 +330,7 @@ int main(int argc, char *argv[]) {
                 }
         
             }
-
+            printf("test12\n");
             for (int k=0;k<10;k++){
                 m_axi_bound[k*4+0] = detections[k].x;
                 m_axi_bound[k*4+1] = detections[k].y;
